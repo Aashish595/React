@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useTode } from "../context/TodoContext";
+import { useTodo } from "../context/TodoContext";
 
 function TodoForm(){
     const [todo, setTodo] = useState("")
-    const {addTodo} = useTode()
+    const {addTodo} = useTodo()
 
     const add = (e) => {
         e.preventDefault()

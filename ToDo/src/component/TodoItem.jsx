@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useTode } from "../context/TodoContext";
+import { useTodo } from "../context";
 
 function TodoItem({todo}){
     const [isTodoEditable,setIsTodoEditable] = useState(false)
     const [todoMsg , setTodoMsg] = useState(todo.todo)
-    const {updateTodo , deleteTodo , toggleComplete} = useTode()
+    const {updateTodo , deleteTodo , toggleComplete} = useTodo()
 
     const edittable = () => {
         updateTodo(todo.id , {...todo , todo:todoMsg})
@@ -45,7 +45,7 @@ function TodoItem({todo}){
                 if (todo.completed) return;
 
                 if (isTodoEditable) {
-                    editTodo();
+                    edittable();
                 } else setIsTodoEditable((prev) => !prev);
             }}
             disabled={todo.completed}
